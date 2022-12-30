@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "module": "esnext",
+        "noImplicitReturns": true,
+        "noUnusedLocals": true,
+        "moduleResolution": "node",
+        "outDir": "lib",
+        "sourceMap": true,
+        "strict": true,
+        "target": "es2020",
+        "allowSyntheticDefaultImports": true
+    },
+    "compileOnSave": true,
+    "include": [
+        "src",
+        "data/import_firestore.ts"
+    ]
+}
