@@ -13,7 +13,7 @@ export const Works = () => {
                 <section>
                     <h2>はじめに</h2>
                     <p className='icon'>
-                        <img src={img_meishi_koukan} />
+                        <img src={img_meishi_koukan} alt="はじめに" />
                     </p>
                     <p>
                         このサイトは、酒井智弘の経歴・スキルを知ってもらうためのポートフォリオです。<br />
@@ -23,7 +23,7 @@ export const Works = () => {
                 <section>
                     <h2>経歴要約</h2>
                     <p className='icon'>
-                        <img src={img_start_line} />
+                        <img src={img_start_line} alt="経歴要約" />
                     </p>
                     <p>
                         主にバックエンドエンジニアとして、大規模WEBサービスの新規立ち上げ・設計・開発・保守・運用・テストなど一通りの開発経験を10年以上積む。<br />
@@ -34,7 +34,7 @@ export const Works = () => {
                 <section>
                     <h2>スキル</h2>
                     <p className='icon'>
-                        <img src={img_pc_tiping} />
+                        <img src={img_pc_tiping} alt="スキル" />
                     </p>
                     <p>
                         PHP … 10年以上<br />
@@ -52,7 +52,7 @@ export const Works = () => {
                 <section>
                     <h2>職歴</h2>
                     <p className='icon'>
-                        <img src={img_job_is_done} />
+                        <img src={img_job_is_done} alt="職歴" />
                     </p>
                     <p>
                         <h3>株式会社ドワンゴ</h3>
@@ -73,7 +73,7 @@ export const Works = () => {
                 <section>
                     <h2>プロジェクト</h2>
                     <p className='icon'>
-                        <img src={img_meeting} />
+                        <img src={img_meeting} alt="プロジェクト" />
                     </p>
                     <p>
                         <h3>ニコニコチャンネル</h3>
@@ -108,7 +108,7 @@ export const Works = () => {
                 <section>
                     <h2>このサイトの技術</h2>
                     <p className='icon'>
-                        <img src={img_light} />
+                        <img src={img_light} alt="このサイトの技術" />
                     </p>
                     <p>
                         <p>

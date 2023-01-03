@@ -1,4 +1,3 @@
-import {useEffect, useState} from 'react';
 import {Works} from './Works';
 import {About} from './About';
 import {Contact} from './Contact';
