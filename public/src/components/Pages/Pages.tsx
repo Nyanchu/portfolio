@@ -15,10 +15,3 @@ export const Pages = (props: {pageName: string;}) => {
             return <></>;
     }
 };
-
-type JobDescription = {
-    id: string,
-    company: string,
-    startAt: string,
-    endAt?: string,
-};
