@@ -1,0 +1,236 @@
+openapi: 3.0.2
+info:
+  title: Firebase Function REST API
+  description: Firebase Function REST API
+  termsOfService: "http://localhost:8080/about/"
+  version: 0.2.0
+servers:
+  - url: "http://127.0.0.1:5001/portfolio-8cf27/us-central1/api"
+    description: Local
+tags:
+  - name: Job
+    description: Job description.
+  - name: Ping
+    description: Ping test.
+paths:
+  /job-descriptions:
+    get:
+      tags:
+        - Job
+      description: Job descriptions
+      operationId: getJobDescriptions
+      parameters:
+        - name: filter
+          in: query
+          description: filter job description
+          schema:
+            type: string
+        - name: startIndex
+          in: query
+          description: start index (0-based)
+          schema:
+            type: integer
+            format: int32
+            default: 0
+        - name: count
+          in: query
+          description: page size
+          schema:
+            type: integer
+            format: int32
+            default: 100
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JobDescriptionsResponse"
+        "400":
+          $ref: "#/components/responses/BadRequestErrorResponse"
+        "401":
+          $ref: "#/components/responses/UnauthorizedErrorResponse"
+        "404":
+          $ref: "#/components/responses/NotFoundErrorResponse"
+        "500":
+          $ref: "#/components/responses/InternalServerErrorResponse"
+  /Ping:
+    get:
+      operationId: getPing
+      tags:
+        - Ping
+      summary: getResourceTypes summary
+      description: getResourceTypes description
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Ping"
+        "401":
+          $ref: "#/components/responses/UnauthorizedErrorResponse"
+components:
+  schemas:
+    Ping:
+      type: object
+      properties:
+        ping:
+          type: string
+    JobDescription:
+      type: object
+      properties:
+        id:
+          type: string
+        company:
+          type: string
+          description: 会社名
+        description:
+          type: string
+          description: 説明文
+        startAt:
+          type: string
+          format: date-time
+          description: 開始日
+        endAt:
+          type: string
+          format: date-time
+          description: 終了日
+      required:
+        - id
+        - company
+        - startAt
+    JobDescriptionsResponse:
+      type: array
+      items:
+        $ref: "#/components/schemas/JobDescription"
+    ErrorResponse:
+      description: Response Error.
+      required:
+        - code
+        - message
+      type: object
+      properties:
+        code:
+          title: error code
+          type: string
+          example: "500"
+        message:
+          title: error message
+          type: string
+          example: Internal Server Error.
+  responses:
+    BadRequestErrorResponse:
+      description: |
+        Bad Request.
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "#/components/schemas/ErrorResponse"
+            properties:
+              code:
+                example: 400
+              message:
+                example: Bad Request.
+    UnauthorizedErrorResponse:
+      description: |
+        Unauthorized.
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "#/components/schemas/ErrorResponse"
+            properties:
+              code:
+                example: 401
+              message:
+                example: Unauthorized.
+    ForbiddenErrorResponse:
+      description: |
+        Forbidden.
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "#/components/schemas/ErrorResponse"
+            properties:
+              code:
+                example: 403
+              message:
+                example: permissions denied.
+    NotFoundErrorResponse:
+      description: |
+        Not Found.
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "#/components/schemas/ErrorResponse"
+            properties:
+              code:
+                example: 404
+              message:
+                example: Not Found.
+    ConflictErrorResponse:
+      description: |
+        Conflict.
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "#/components/schemas/ErrorResponse"
+            properties:
+              code:
+                example: 409
+              message:
+                example: Conflict.
+    GoneErrorResponse:
+      description: |
+        Target Resource has been permanently deleted.
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "#/components/schemas/ErrorResponse"
+            properties:
+              code:
+                example: 410
+              message:
+                example: Gone.
+    ValidationErrorResponse:
+      description: Validation Error.
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "#/components/schemas/ErrorResponse"
+            properties:
+              code:
+                example: 422
+              message:
+                example: Validation Error.
+    TooManyRequestsErrorResponse:
+      description: Too Many Requests Error.
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "#/components/schemas/ErrorResponse"
+            properties:
+              code:
+                example: 429
+              message:
+                example: Too Many Requests Error.
+    InternalServerErrorResponse:
+      description: Internal Server Error.
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "#/components/schemas/ErrorResponse"
+            properties:
+              code:
+                example: 500
+              message:
+                example: Internal Server Error.

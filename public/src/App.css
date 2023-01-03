@@ -1,0 +1,114 @@
+@charset "utf-8";
+
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap');
+
+body {
+    font-family: 'Shippori Mincho', 'メイリオ', Meiryo, sans-serif;
+    font-size: 12px;
+    color: #333;
+    line-height: 1.9;
+    text-align: left;
+    -webkit-text-size-adjust: 100%;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #333;
+    text-decoration: underline;
+}
+
+.pc {
+    display: none;
+}
+
+.sp {
+    display: block;
+}
+
+/* header
+--------------------------------*/
+header {
+    clear: both;
+    margin-left: 30px;
+}
+
+header h1 {
+    margin-top: 21px;
+    text-align: left;
+}
+
+nav {
+    margin-top: 30px;
+}
+
+nav li {
+    float: left;
+    margin-right: 50px;
+    text-align: center;
+    list-style-type: none;
+}
+
+nav ul li a {
+    display: block;
+    width: 100%;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.2em;
+}
+
+nav ul li a.selected {
+    color: #666;
+}
+
+ul.social {
+    color: #666;
+}
+
+ul.social li {
+    float: left;
+    list-style-type: none;
+    margin-right: 5px;
+    color: #666;
+}
+
+
+/* main
+--------------------------------*/
+
+div.main {
+    clear: both;
+    margin-top: 100px;
+    margin-left: 25px;
+}
+
+section.block {
+    clear: both;
+}
+
+section.block section {
+    float: left;
+    width: 30%;
+    height: auto;
+    margin-right: 3%;
+}
+
+section.block section h2 {
+    text-align: center;
+}
+
+section.block section h3 {
+    margin: 0;
+}
+
+section.block section p.icon {
+    text-align: center;
+}
+
+section.block section p.icon img {
+    width: 100px;
+}
