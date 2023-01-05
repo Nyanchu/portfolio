@@ -23,6 +23,11 @@ app.get("/job-descriptions", async (req, res) => {
   res.json(JobDescriptions);
 });
 
-// 出力
-export const api = functions.https.onRequest(app);
+// 関数を出力
+// TODO: config に切り出し
+export const api = functions.runWith({
+  maxInstances: 1,
+  timeoutSeconds: 30,
+  memory: "128MB",
+}).https.onRequest(app);
 
