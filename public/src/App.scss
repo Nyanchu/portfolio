@@ -1,0 +1,206 @@
+@charset "utf-8";
+
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap');
+
+body {
+    font-family: 'Shippori Mincho', 'メイリオ', Meiryo, sans-serif;
+    font-size: 12px;
+    color: #333;
+    line-height: 1.9;
+    text-align: left;
+    -webkit-text-size-adjust: 100%;
+}
+
+/* SP向け 〜699px */
+@media only screen and (max-width: 699px) {
+    body {
+        font-size: 14px;
+    }
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #333;
+    text-decoration: underline;
+}
+
+.w50px {
+    width: 50px;
+}
+
+.w80px {
+    width: 80px;
+}
+
+.w100px {
+    width: 100px;
+}
+
+.w140px {
+    width: 135px;
+}
+
+/* header
+--------------------------------*/
+header {
+    clear: both;
+    width: 100%;
+    top: 0;
+    position: sticky;
+    z-index: 9998;
+    background: #ebeae9;
+    height: 105px;
+
+    /* SP向け 〜699px */
+    @media only screen and (max-width: 699px) {
+        height: 100px;
+    }
+
+    /* PC向け 700px〜 */
+    @media only screen and (min-width: 700px) {
+        height: 106px;
+    }
+
+    h1 {
+        margin-top: 0;
+        margin-bottom: 0;
+        text-align: left;
+        background: url("./assets/img/nu01159.png") no-repeat;
+        background-size: 25px 25px;
+
+        /* SP向け 〜699px */
+        @media only screen and (max-width: 699px) {
+            padding-top: 5px;
+            margin-left: 20px;
+            padding-left: 35px;
+            font-size: 22px;
+            background-position: 0px 12px;
+        }
+
+        /* PC向け 700px〜 */
+        @media only screen and (min-width: 700px) {
+            padding-top: 10px;
+            margin-left: 25px;
+            padding-left: 35px;
+            font-size: 24px;
+            background-position: 0px 20px;
+        }
+    }
+}
+
+nav {
+    float: right;
+
+    /* SP向け 〜699px */
+    @media only screen and (max-width: 699px) {
+        margin-right: 5px;
+    }
+
+    /* PC向け 700px〜 */
+    @media only screen and (min-width: 700px) {
+        margin-top: 0px;
+        top: 0px;
+        right: 20px;
+    }
+
+    li {
+        float: left;
+        list-style-type: none;
+        text-align: center;
+
+        /* SP向け 〜699px */
+        @media only screen and (max-width: 699px) {
+            margin-right: 20px;
+        }
+
+        /* PC向け 700px〜 */
+        @media only screen and (min-width: 700px) {
+            margin-right: 60px;
+        }
+
+        a {
+            display: block;
+            width: 100%;
+            padding: 5px 10px;
+            font-weight: 600;
+            font-size: 16px;
+            letter-spacing: 0.2em;
+            text-align: center;
+        }
+
+        a.selected {
+            color: #333;
+            background: #FFF;
+        }
+    }
+}
+
+
+/* main
+--------------------------------*/
+
+div.main {
+    clear: both;
+    margin-left: 25px;
+
+    /* SP向け 〜699px */
+    @media only screen and (max-width: 699px) {
+        margin-top: 30px;
+    }
+
+    /* PC向け 700px〜 */
+    @media only screen and (min-width: 700px) {
+        margin-top: 50px;
+    }
+}
+
+section.block {
+    clear: both;
+
+    section {
+
+        /* PC向け 700px〜 */
+        @media only screen and (min-width: 700px) {
+            float: left;
+            width: 30%;
+            height: auto;
+            margin-right: 3%;
+        }
+
+        /* SP向け 〜699px */
+        @media only screen and (max-width: 699px) {
+            width: 95%;
+            height: auto;
+            margin-top: 30px;
+        }
+
+        h2 {
+            margin-top: 17px;
+            margin-bottom: 0px;
+            text-align: center;
+        }
+
+        h3 {
+            margin: 0;
+        }
+
+        hr {
+            margin-top: 0;
+            border: 3px solid #ebeae9;
+        }
+
+        p.icon {
+            text-align: center;
+
+            img {
+                margin-top: 10px;
+                width: 100px;
+            }
+        }
+    }
+}

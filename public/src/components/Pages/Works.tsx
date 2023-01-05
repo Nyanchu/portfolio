@@ -124,8 +124,8 @@ export const Works = () => {
                         <h3>フロントエンド</h3>
                         <p>
                             WEBサーバ: Firebase Hosting<br />
-                            使用言語: React(TypeScript) + HTML + CSS で SPA<br />
-                            デザイン: レスポンシブ対応。ブートストラップなどは使わずにイチから書いています。
+                            使用言語: React(TypeScript) + HTML + SCSS で SPA<br />
+                            デザイン: レスポンシブ対応。ブートストラップなどは使わずにイチから作っています。
                         </p>
                         <h3>REST API</h3>
                         <p>
@@ -139,6 +139,7 @@ export const Works = () => {
                         <h3>その他</h3>
                         <p>
                             CI/CD: Github Actions でマージをフックに自動デプロイ<br />
+                            <br />
                         </p>
                     </p>
                 </section>

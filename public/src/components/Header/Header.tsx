@@ -1,4 +1,3 @@
-import img_title from "../../assets/img/logo_transparent.png";
 
 export const Header = (props: {pageName: string, changePageFunc: (pageName: string) => void;}) => {
     const page = props.pageName;

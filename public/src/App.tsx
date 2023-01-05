@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import './App.css';
+import './App.scss';
 import {Header} from './components/Header';
 import {Pages} from './components/Pages';
 
