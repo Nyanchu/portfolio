@@ -10,11 +10,10 @@ function App() {
         setPage(pageName);
     };
     return (
-        <div>
+        <>
             <Header pageName={page} changePageFunc={changePageFunc} />
-
             <Pages pageName={page} />
-        </div>
+        </>
     );
 }
 

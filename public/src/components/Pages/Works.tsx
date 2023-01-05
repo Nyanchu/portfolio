@@ -12,16 +12,18 @@ export const Works = () => {
             <section className='block'>
                 <section>
                     <h2>はじめに</h2>
+                    <hr className='w80px' />
                     <p className='icon'>
                         <img src={img_meishi_koukan} alt="はじめに" />
                     </p>
                     <p>
-                        このサイトは、酒井智弘の経歴・スキルを知ってもらうためのポートフォリオです。<br />
+                        このサイトは、酒井智弘の経歴・スキルを知ってもらうためのポートフォリオサイトです。<br />
                         基本的な情報は全てこのページ1枚にまとまっています。
                     </p>
                 </section>
                 <section>
                     <h2>経歴要約</h2>
+                    <hr className='w80px' />
                     <p className='icon'>
                         <img src={img_start_line} alt="経歴要約" />
                     </p>
@@ -33,6 +35,7 @@ export const Works = () => {
                 </section>
                 <section>
                     <h2>スキル</h2>
+                    <hr className='w80px' />
                     <p className='icon'>
                         <img src={img_pc_tiping} alt="スキル" />
                     </p>
@@ -51,6 +54,7 @@ export const Works = () => {
             <section className='block'>
                 <section>
                     <h2>職歴</h2>
+                    <hr className='w50px' />
                     <p className='icon'>
                         <img src={img_job_is_done} alt="職歴" />
                     </p>
@@ -72,6 +76,7 @@ export const Works = () => {
                 </section>
                 <section>
                     <h2>プロジェクト</h2>
+                    <hr className='w100px' />
                     <p className='icon'>
                         <img src={img_meeting} alt="プロジェクト" />
                     </p>
@@ -107,6 +112,7 @@ export const Works = () => {
                 </section>
                 <section>
                     <h2>このサイトの技術</h2>
+                    <hr className='w140px' />
                     <p className='icon'>
                         <img src={img_light} alt="このサイトの技術" />
                     </p>
@@ -119,7 +125,7 @@ export const Works = () => {
                         <p>
                             WEBサーバ: Firebase Hosting<br />
                             使用言語: React(TypeScript) + HTML + CSS で SPA<br />
-                            デザイン: ブートストラップなどは使わずにイチから書いています。
+                            デザイン: レスポンシブ対応。ブートストラップなどは使わずにイチから書いています。
                         </p>
                         <h3>REST API</h3>
                         <p>
@@ -129,6 +135,10 @@ export const Works = () => {
                         <h3>DB</h3>
                         <p>
                             DBサーバ: Firestore(NoSQL)
+                        </p>
+                        <h3>その他</h3>
+                        <p>
+                            CI/CD: Github Actions でマージをフックに自動デプロイ<br />
                         </p>
                     </p>
                 </section>

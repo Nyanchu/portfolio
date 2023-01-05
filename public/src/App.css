@@ -12,6 +12,13 @@ body {
     -webkit-text-size-adjust: 100%;
 }
 
+/* SP向け 〜699px */
+@media only screen and (max-width: 699px) {
+    body {
+        font-size: 14px;
+    }
+}
+
 a {
     color: #333;
     text-decoration: none;
@@ -22,82 +29,178 @@ a:hover {
     text-decoration: underline;
 }
 
-.pc {
-    display: none;
+.w50px {
+    width: 50px;
 }
 
-.sp {
-    display: block;
+.w80px {
+    width: 80px;
+}
+
+.w100px {
+    width: 100px;
+}
+
+.w140px {
+    width: 135px;
 }
 
 /* header
 --------------------------------*/
 header {
     clear: both;
-    margin-left: 30px;
+    width: 100%;
+    top: 0;
+    position: sticky;
+    z-index: 9998;
+    background: #ebeae9;
+    height: 105px;
+}
+
+/* SP向け 〜699px */
+@media only screen and (max-width: 699px) {
+    header {
+        height: 100px;
+    }
+}
+
+/* PC向け 700px〜 */
+@media only screen and (min-width: 700px) {
+    header {
+        height: 105px;
+    }
 }
 
 header h1 {
-    margin-top: 21px;
+    margin-top: 0;
+    margin-bottom: 0;
     text-align: left;
+    background: url("./assets/img/nu01159.png") no-repeat;
+    background-size: 25px 25px;
 }
 
-nav {
-    margin-top: 30px;
+/* SP向け 〜699px */
+@media only screen and (max-width: 699px) {
+    header h1 {
+        padding-top: 5px;
+        margin-left: 20px;
+        padding-left: 35px;
+        font-size: 22px;
+        background-position: 0px 12px;
+    }
 }
 
-nav li {
-    float: left;
-    margin-right: 50px;
-    text-align: center;
-    list-style-type: none;
+/* PC向け 700px〜 */
+@media only screen and (min-width: 700px) {
+    header h1 {
+        padding-top: 10px;
+        margin-left: 25px;
+        padding-left: 35px;
+        font-size: 24px;
+        background-position: 0px 20px;
+    }
+}
+
+/* SP向け 〜699px */
+@media only screen and (max-width: 699px) {
+    nav {
+        margin-right: 5px;
+        float: right;
+    }
+}
+
+/* PC向け 700px〜 */
+@media only screen and (min-width: 700px) {
+    nav {
+        margin-top: 0px;
+        top: 0px;
+        right: 20px;
+        float: right;
+    }
+}
+
+/* SP向け 〜699px */
+@media only screen and (max-width: 699px) {
+    nav li {
+        float: left;
+        margin-right: 20px;
+        list-style-type: none;
+    }
+}
+
+/* PC向け 700px〜 */
+@media only screen and (min-width: 700px) {
+    nav li {
+        float: left;
+        margin-right: 60px;
+        text-align: center;
+        list-style-type: none;
+    }
 }
 
 nav ul li a {
     display: block;
     width: 100%;
+    padding: 5px 10px;
     font-weight: 600;
     font-size: 16px;
     letter-spacing: 0.2em;
+    text-align: center;
 }
 
 nav ul li a.selected {
-    color: #666;
-}
-
-ul.social {
-    color: #666;
-}
-
-ul.social li {
-    float: left;
-    list-style-type: none;
-    margin-right: 5px;
-    color: #666;
+    color: #333;
+    background: #FFF;
 }
 
 
 /* main
 --------------------------------*/
 
-div.main {
-    clear: both;
-    margin-top: 100px;
-    margin-left: 25px;
+/* SP向け 〜699px */
+@media only screen and (max-width: 699px) {
+    div.main {
+        clear: both;
+        margin-top: 30px;
+        margin-left: 25px;
+    }
+}
+
+/* PC向け 700px〜 */
+@media only screen and (min-width: 700px) {
+    div.main {
+        clear: both;
+        margin-top: 50px;
+        margin-left: 25px;
+    }
 }
 
 section.block {
     clear: both;
 }
 
-section.block section {
-    float: left;
-    width: 30%;
-    height: auto;
-    margin-right: 3%;
+/* PC向け 700px〜 */
+@media only screen and (min-width: 700px) {
+    section.block section {
+        float: left;
+        width: 30%;
+        height: auto;
+        margin-right: 3%;
+    }
+}
+
+/* SP向け 〜699px */
+@media only screen and (max-width: 699px) {
+    section.block section {
+        width: 95%;
+        height: auto;
+        margin-top: 30px;
+    }
 }
 
 section.block section h2 {
+    margin-top: 17px;
+    margin-bottom: 0px;
     text-align: center;
 }
 
@@ -105,10 +208,16 @@ section.block section h3 {
     margin: 0;
 }
 
+section.block section hr {
+    margin-top: 0;
+    border: 3px solid #ebeae9;
+}
+
 section.block section p.icon {
     text-align: center;
 }
 
 section.block section p.icon img {
+    margin-top: 10px;
     width: 100px;
 }

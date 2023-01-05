@@ -1,10 +1,12 @@
+import img_title from "../../assets/img/logo_transparent.png";
 
 export const Header = (props: {pageName: string, changePageFunc: (pageName: string) => void;}) => {
     const page = props.pageName;
     const changePage = props.changePageFunc;
     return (
         <header>
-            <h1>酒井 智弘 - ポートフォリオ</h1>
+            {/*<h1><img src={img_title} alt="酒井 智弘　PORTFOLIO" /></h1>*/}
+            <h1>TOMOHIRO SAKAI</h1>
             <nav>
                 <ul>
                     <li>
