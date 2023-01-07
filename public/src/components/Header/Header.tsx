@@ -1,33 +1,31 @@
+import {Link} from "react-router-dom";
 
-export const Header = (props: {pageName: string, changePageFunc: (pageName: string) => void;}) => {
-    const page = props.pageName;
-    const changePage = props.changePageFunc;
+export const Header = ({pageName, onChange}: {pageName: string, onChange: Function;}) => {
     return (
         <header>
-            {/*<h1><img src={img_title} alt="酒井 智弘　PORTFOLIO" /></h1>*/}
             <h1>TOMOHIRO SAKAI</h1>
             <nav>
                 <ul>
                     <li>
-                        <a
-                            className={page === "works" ? "selected" : ""}
-                            href={"#works"}
-                            onClick={() => changePage("works")}
-                        >works</a>
+                        <Link
+                            className={pageName === "works" ? "selected" : ""}
+                            to="/works"
+                            onClick={() => onChange("works")}
+                        >works</Link>
                     </li>
                     <li>
-                        <a
-                            className={page === "about" ? "selected" : ""}
-                            href={"#about"}
-                            onClick={() => changePage("about")}
-                        >about</a>
+                        <Link
+                            className={pageName === "skill" ? "selected" : ""}
+                            to="/skill"
+                            onClick={() => onChange("skill")}
+                        >skill</Link>
                     </li>
                     <li>
-                        <a
-                            className={page === "contact" ? "selected" : ""}
-                            href={"#contact"}
-                            onClick={() => changePage("contact")}
-                        >contact</a>
+                        <Link
+                            className={pageName === "contact" ? "selected" : ""}
+                            to="/contact"
+                            onClick={() => onChange("contact")}
+                        >contact</Link>
                     </li>
                 </ul>
             </nav>

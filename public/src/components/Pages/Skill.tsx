@@ -1,4 +1,5 @@
 import {useEffect, useState} from 'react';
+import {Pagination} from '../Pagination';
 
 type User = {
     name: string;
@@ -13,17 +14,17 @@ type User = {
     address: string;
 };
 
-const pagePerCount = 50;
+const pagePerCount = 48;
 
-export const About = () => {
+export const Skill = () => {
+    // ステータス
     const [users, setUsers] = useState([] as User[]);
-    const [usersCount, setusersCount] = useState(50 as number);
+    const [usersCount, setusersCount] = useState(pagePerCount as number);
     const [page, setPage] = useState(1 as number);
 
-    // リストの生成
+    // hook で非同期処理をする
     useEffect(() => {
-        // useEffect自体ではasyncの関数を受け取れないので内部で関数を定義して呼び出す。
-        // TODO: react-query で書き直す？しかし親要素にも影響があるのが直感的ではない
+        // useEffect自体ではasyncの関数を受け取れないので内部で関数を定義して呼び出す
         (async () => {
             const offset = (page - 1) * pagePerCount;
             const response = await fetch(
@@ -35,17 +36,17 @@ export const About = () => {
             setUsers(body.data);
             setusersCount(body.count);
         })();
-    }, [page]); // pageの更新があったときに実行
+    }, [page]); // pageの更新があったときに再実行
 
-    // ページネーションの生成
-    const pageCount = Math.floor(usersCount / pagePerCount);
+    // ページネーションの計算
+    const pageCount = Math.ceil(usersCount / pagePerCount);
     const handleChange = (page: number) => {console.log(page); setPage(page);};
 
     return (
         <div className='main'>
-            <Pagination pageCount={pageCount} page={page} onChange={handleChange} />
+            <Pagination path="/skill" pageCount={pageCount} page={page} onChange={handleChange} />
             <BlockList users={users} />
-            <Pagination pageCount={pageCount} page={page} onChange={handleChange} />
+            <Pagination path="/skill" pageCount={pageCount} page={page} onChange={handleChange} />
         </div >
     );
 };
@@ -67,26 +68,5 @@ function List({user}: {user: User;}) {
             <p>{user.birthday}　{user.sex}</p>
             <p>〒{user.postalCode} {user.address}</p>
         </li>
-    );
-}
-
-function Pagination(
-    {pageCount, page, onChange}:
-        {pageCount: Number, page: Number, onChange: Function;}) {
-    let list = [];
-    for (let i = 1; i <= pageCount; i++) {
-        list.push(
-            <li>
-                <a href={"#about/" + i}
-                    onClick={() => onChange(i)}
-                    className={page === i ? "selected" : ""}
-                >{i}</a>
-            </li>
-        );
-    }
-    return (
-        <ul className='pagination'>
-            {list}
-        </ul>
     );
 }

@@ -243,10 +243,19 @@ ul.block_list {
     li {
         float: left;
         list-style: none;
-        width: 200px;
         border: 1px solid #EEE;
         margin-left: 10px;
         margin-top: 10px;
+
+        /* PC向け 700px〜 */
+        @media only screen and (min-width: 700px) {
+            width: 200px;
+        }
+
+        /* SP向け 〜699px */
+        @media only screen and (max-width: 699px) {
+            width: 150px;
+        }
 
         p {
             margin-left: 10px;
@@ -259,8 +268,6 @@ ul.block_list {
         p.name {
             font-weight: bold;
         }
-
-        p.address {}
     }
 }
 
@@ -275,9 +282,9 @@ ul.pagination {
         list-style: none;
 
         a {
-            border: 1px solid #EEE;
             margin: 5px;
             padding: 5px;
+            overflow: auto;
             cursor: pointer;
         }
 

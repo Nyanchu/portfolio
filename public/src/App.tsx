@@ -1,7 +1,10 @@
 import {useState} from 'react';
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 import './App.scss';
 import {Header} from './components/Header';
-import {Pages} from './components/Pages';
+import {Works} from './components/Pages/Works';
+import {Skill} from './components/Pages/Skill';
+import {Contact} from './components/Pages/Contact';
 
 function App() {
     // ページのステート変数を宣言する
@@ -10,10 +13,17 @@ function App() {
         setPage(pageName);
     };
     return (
-        <>
-            <Header pageName={page} changePageFunc={changePageFunc} />
-            <Pages pageName={page} />
-        </>
+        <BrowserRouter>
+            <Header pageName={page} onChange={changePageFunc} />
+            <Routes>
+                <Route path="/" element={<Works />} />
+                <Route path="/works" element={<Works />} />
+                <Route path="/skill" element={<Skill />}>
+                    <Route path=":page" element={<Skill />} />
+                </Route>
+                <Route path="/contact" element={<Contact />} />
+            </Routes>
+        </BrowserRouter>
     );
 }
 
