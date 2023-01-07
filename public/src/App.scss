@@ -10,11 +10,9 @@ body {
     line-height: 1.9;
     text-align: left;
     -webkit-text-size-adjust: 100%;
-}
 
-/* SP向け 〜699px */
-@media only screen and (max-width: 699px) {
-    body {
+    /* SP向け 〜699px */
+    @media only screen and (max-width: 699px) {
         font-size: 14px;
     }
 }
@@ -41,8 +39,16 @@ a:hover {
     width: 100px;
 }
 
-.w140px {
+.w135px {
     width: 135px;
+}
+
+.w160px {
+    width: 160px;
+}
+
+.w170px {
+    width: 170px;
 }
 
 /* header
@@ -136,6 +142,7 @@ nav {
         a.selected {
             color: #333;
             background: #FFF;
+            border-radius: 13em 13em 0 0;
         }
     }
 }
@@ -146,7 +153,6 @@ nav {
 
 div.main {
     clear: both;
-    margin-left: 25px;
 
     /* SP向け 〜699px */
     @media only screen and (max-width: 699px) {
@@ -161,6 +167,8 @@ div.main {
 
 section.block {
     clear: both;
+    overflow: auto;
+    margin-left: 25px;
 
     section {
 
@@ -199,8 +207,83 @@ section.block {
 
             img {
                 margin-top: 10px;
-                width: 100px;
             }
+        }
+    }
+}
+
+section#block_list {
+    margin-top: 25px;
+
+    section#circle {
+        margin-left: auto;
+        margin-right: auto;
+        width: 300px;
+        height: 150px;
+        border-radius: 13em 13em 0 0;
+        position: relative;
+        background: #ebeae9;
+        transform: translate3d(0, 0, 0);
+
+        h2 {
+            margin: 0px;
+            padding-top: 100px;
+
+            text-align: center;
+        }
+    }
+}
+
+/* list
+--------------------------------*/
+
+ul.block_list {
+    overflow: auto;
+
+    li {
+        float: left;
+        list-style: none;
+        width: 200px;
+        border: 1px solid #EEE;
+        margin-left: 10px;
+        margin-top: 10px;
+
+        p {
+            margin-left: 10px;
+            height: 20px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        p.name {
+            font-weight: bold;
+        }
+
+        p.address {}
+    }
+}
+
+ul.pagination {
+    clear: both;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    overflow: auto;
+
+    li {
+        float: left;
+        list-style: none;
+
+        a {
+            border: 1px solid #EEE;
+            margin: 5px;
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        a.selected {
+            background-color: #333;
+            color: #FFF;
         }
     }
 }

@@ -11,16 +11,33 @@ app.use(express.json());
 // firebase-admin の初期化
 admin.initializeApp();
 
-type JobDescription = {
-  company: string;
-  description: string;
+type Users = {
+  name: string;
+  kana: string;
+  age: number;
+  birthday: string;
+  sex: string;
+  mail: string;
+  tel1: string;
+  tel2: string;
+  postalCode: string;
+  address: string;
 };
 
-app.get("/job-descriptions", async (req, res) => {
+app.get("/users", async (req, res) => {
+  const limit = Number(req.query.limit) || 50;
+  const offset = Number(req.query.offset) || 0;
   // Firebaseからデータ取得
-  const collection = await admin.firestore().collection("JobDescriptions").get();
-  const JobDescriptions = collection.docs.map((d) => d.data() as JobDescription);
-  res.json(JobDescriptions);
+  const collection = await admin.firestore().collection("users");
+  const count = await collection.count().get();
+  const result = await collection.limit(limit).offset(offset).get();
+  const users = result.docs.map((d) => d.data() as Users);
+  res.json({
+    limit: limit,
+    offset: offset,
+    count: count.data().count,
+    data: users,
+  });
 });
 
 // 関数を出力
