@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {useLocation} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import {Pagination} from '../Pagination';
 
 type User = {
@@ -15,10 +15,11 @@ type User = {
     address: string;
 };
 
+// 1ページに表示する件数
 const pagePerCount = 48;
 
 export const Skill = () => {
-    const pagePath = useLocation().pathname.split('/')[2] || 1;
+    const pagePath = useParams().page || 1;
     const [users, setUsers] = useState([] as User[]);
     const [usersCount, setusersCount] = useState(pagePerCount as number);
     const [page, setPage] = useState(Number(pagePath));
@@ -27,6 +28,7 @@ export const Skill = () => {
     useEffect(() => {
         // useEffect自体ではasyncの関数を受け取れないので内部で関数を定義して呼び出す
         (async () => {
+            // API実行
             const offset = (page - 1) * pagePerCount;
             const response = await fetch(
                 process.env.REACT_APP_URL_FUNCTIONS_API + "/users"
@@ -38,6 +40,12 @@ export const Skill = () => {
             setusersCount(body.count);
         })();
     }, [page]); // pageの更新があったときに再実行
+
+    // ブラウザバックで page も戻る
+    window.addEventListener('popstate', (() => {
+        const page = window.location.pathname.split('/')[2];
+        setPage(Number(page) || 1);
+    }), false);
 
     // ページネーションの計算
     const pageCount = Math.ceil(usersCount / pagePerCount);
