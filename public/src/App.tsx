@@ -1,4 +1,3 @@
-import {useState} from 'react';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import './App.scss';
 import {Header} from './components/Header';
@@ -7,14 +6,9 @@ import {Skill} from './components/Pages/Skill';
 import {Contact} from './components/Pages/Contact';
 
 function App() {
-    // ページのステート変数を宣言する
-    const [page, setPage] = useState("works");
-    const changePageFunc = (pageName: string) => {
-        setPage(pageName);
-    };
     return (
         <BrowserRouter>
-            <Header pageName={page} onChange={changePageFunc} />
+            <Header />
             <Routes>
                 <Route path="/" element={<Works />} />
                 <Route path="/works" element={<Works />} />

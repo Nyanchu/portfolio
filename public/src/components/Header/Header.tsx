@@ -1,6 +1,10 @@
-import {Link} from "react-router-dom";
+import {useState} from 'react';
+import {Link, useLocation} from "react-router-dom";
 
-export const Header = ({pageName, onChange}: {pageName: string, onChange: Function;}) => {
+export const Header = () => {
+    const pathname = useLocation().pathname.split('/')[1];
+    // ページのステート変数を宣言する
+    const [page, setPage] = useState(pathname);
     return (
         <header>
             <h1>TOMOHIRO SAKAI</h1>
@@ -8,23 +12,23 @@ export const Header = ({pageName, onChange}: {pageName: string, onChange: Functi
                 <ul>
                     <li>
                         <Link
-                            className={pageName === "works" ? "selected" : ""}
+                            className={page === "works" ? "selected" : ""}
                             to="/works"
-                            onClick={() => onChange("works")}
+                            onClick={() => setPage("works")}
                         >works</Link>
                     </li>
                     <li>
                         <Link
-                            className={pageName === "skill" ? "selected" : ""}
+                            className={page === "skill" ? "selected" : ""}
                             to="/skill"
-                            onClick={() => onChange("skill")}
+                            onClick={() => setPage("skill")}
                         >skill</Link>
                     </li>
                     <li>
                         <Link
-                            className={pageName === "contact" ? "selected" : ""}
+                            className={page === "contact" ? "selected" : ""}
                             to="/contact"
-                            onClick={() => onChange("contact")}
+                            onClick={() => setPage("contact")}
                         >contact</Link>
                     </li>
                 </ul>

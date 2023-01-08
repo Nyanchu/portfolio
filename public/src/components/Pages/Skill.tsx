@@ -1,4 +1,5 @@
 import {useEffect, useState} from 'react';
+import {useLocation} from "react-router-dom";
 import {Pagination} from '../Pagination';
 
 type User = {
@@ -17,10 +18,10 @@ type User = {
 const pagePerCount = 48;
 
 export const Skill = () => {
-    // ステータス
+    const pagePath = useLocation().pathname.split('/')[2] || 1;
     const [users, setUsers] = useState([] as User[]);
     const [usersCount, setusersCount] = useState(pagePerCount as number);
-    const [page, setPage] = useState(1 as number);
+    const [page, setPage] = useState(Number(pagePath));
 
     // hook で非同期処理をする
     useEffect(() => {
@@ -40,10 +41,14 @@ export const Skill = () => {
 
     // ページネーションの計算
     const pageCount = Math.ceil(usersCount / pagePerCount);
-    const handleChange = (page: number) => {console.log(page); setPage(page);};
+    const handleChange = (page: number) => setPage(page);;
 
     return (
         <div className='main'>
+            <p className='description'>
+                このページはただ単にスキルをアピールするためのサンプルページです。<br />
+                React で Firebase Functions の API を叩き、Firestore からデータを取得してレンダリングしています。
+            </p>
             <Pagination path="/skill" pageCount={pageCount} page={page} onChange={handleChange} />
             <BlockList users={users} />
             <Pagination path="/skill" pageCount={pageCount} page={page} onChange={handleChange} />
