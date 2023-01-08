@@ -41,7 +41,6 @@ app.get("/users", async (req, res) => {
 });
 
 // 関数を出力
-// TODO: config に切り出し
 export const api = functions.runWith({
   maxInstances: 1,
   timeoutSeconds: 30,
