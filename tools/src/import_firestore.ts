@@ -17,7 +17,7 @@ import fs from "fs";
  */
 
 // 秘密鍵JSONファイルを読み込み認証情報としてセットする
-const serviceAccount = JSON.parse(fs.readFileSync('./secret/portfolio-8cf27-secret-key.json', 'utf8'));
+const serviceAccount = JSON.parse(fs.readFileSync('./.firebase-adminsdk-secret-key.json', 'utf8'));
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
 });

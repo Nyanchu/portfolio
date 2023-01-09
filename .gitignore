@@ -108,3 +108,4 @@ dist
 
 # Firebase
 .firebase
+.firebase-adminsdk-secret-key.json
