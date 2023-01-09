@@ -12,7 +12,6 @@ import fs from "fs";
  * 
  * Usage
  * 
- * cd functions
  * ./node_modules/.bin/ts-node-esm ./tools/import_firestore.ts
  */
 

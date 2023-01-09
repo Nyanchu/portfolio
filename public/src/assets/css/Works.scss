@@ -14,10 +14,50 @@ div.main {
     }
 }
 
+section#block_list {
+    margin-top: 25px;
+
+    section#circle {
+        margin-left: auto;
+        margin-right: auto;
+        width: 300px;
+        height: 150px;
+        border-radius: 13em 13em 0 0;
+        position: relative;
+        background: #ebeae9;
+        transform: translate3d(0, 0, 0);
+
+        h2 {
+            margin: 0px;
+            padding-top: 100px;
+
+            text-align: center;
+        }
+    }
+}
+
 section.block {
     clear: both;
     overflow: auto;
     margin-left: 25px;
+
+    // アニメーション
+    animation-name: fadeUpAnime;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+
+    @keyframes fadeUpAnime {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 
     section {
 
@@ -57,28 +97,6 @@ section.block {
             img {
                 margin-top: 10px;
             }
-        }
-    }
-}
-
-section#block_list {
-    margin-top: 25px;
-
-    section#circle {
-        margin-left: auto;
-        margin-right: auto;
-        width: 300px;
-        height: 150px;
-        border-radius: 13em 13em 0 0;
-        position: relative;
-        background: #ebeae9;
-        transform: translate3d(0, 0, 0);
-
-        h2 {
-            margin: 0px;
-            padding-top: 100px;
-
-            text-align: center;
         }
     }
 }
