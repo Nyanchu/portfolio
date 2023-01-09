@@ -12,7 +12,7 @@ export const Header = () => {
                 <ul>
                     <li>
                         <Link
-                            className={page === "works" ? "selected" : ""}
+                            className={page === "" || page === "works" ? "selected" : ""}
                             to="/works"
                             onClick={() => setPage("works")}
                         >works</Link>

@@ -1,0 +1,66 @@
+@charset "utf-8";
+
+ul.block_list {
+    overflow: auto;
+
+    li {
+        float: left;
+        list-style: none;
+        border: 1px solid #EEE;
+        margin-left: 10px;
+        margin-top: 10px;
+
+        /* PC向け 700px〜 */
+        @media only screen and (min-width: 700px) {
+            width: 200px;
+        }
+
+        /* SP向け 〜699px */
+        @media only screen and (max-width: 699px) {
+            width: 150px;
+        }
+
+        p {
+            margin-left: 10px;
+            height: 20px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        p.name {
+            font-weight: bold;
+        }
+    }
+}
+
+div.loading {
+    position: absolute;
+    width: 100%;
+    height: 200%;
+    background-color: rgba(255, 255, 255, 0.45);
+}
+
+ul.pagination {
+    clear: both;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    overflow: auto;
+
+    li {
+        float: left;
+        list-style: none;
+
+        a {
+            margin: 5px;
+            padding: 5px;
+            overflow: auto;
+            cursor: pointer;
+        }
+
+        a.selected {
+            background-color: #333;
+            color: #FFF;
+        }
+    }
+}

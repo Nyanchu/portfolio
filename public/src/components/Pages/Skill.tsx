@@ -1,6 +1,8 @@
 import {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
+import {Loading} from '../Loading';
 import {Pagination} from '../Pagination';
+import '../../assets/css/Skill.scss';
 
 type User = {
     name: string;
@@ -23,6 +25,7 @@ export const Skill = () => {
     const [users, setUsers] = useState([] as User[]);
     const [usersCount, setusersCount] = useState(pagePerCount as number);
     const [page, setPage] = useState(Number(pagePath));
+    const [isLoading, setIsLoading] = useState(true);
 
     // hook で非同期処理をする
     useEffect(() => {
@@ -38,6 +41,7 @@ export const Skill = () => {
             const body = await response.json();
             setUsers(body.data);
             setusersCount(body.count);
+            setIsLoading(false);
         })();
     }, [page]); // pageの更新があったときに再実行
 
@@ -49,7 +53,10 @@ export const Skill = () => {
 
     // ページネーションの計算
     const pageCount = Math.ceil(usersCount / pagePerCount);
-    const handleChange = (page: number) => setPage(page);;
+    const handleChange = (page: number) => {
+        setIsLoading(true);
+        setPage(page);
+    };
 
     return (
         <div className='main'>
@@ -58,25 +65,30 @@ export const Skill = () => {
                 React で Firebase Functions の API を叩き、Firestore からデータを取得してレンダリングしています。
             </p>
             <Pagination path="/skill" pageCount={pageCount} page={page} onChange={handleChange} />
-            <BlockList users={users} />
+            <BlockList users={users} isLoading={isLoading} />
             <Pagination path="/skill" pageCount={pageCount} page={page} onChange={handleChange} />
         </div >
     );
 };
 
-function BlockList({users}: {users: User[];}) {
+function BlockList({users, isLoading}: {users: User[], isLoading: boolean;}) {
     let list: any = [];
-    users.map((user) => list.push(<List user={user} />));
+    users.map((user) => list.push(<List key={user.name} user={user} />));
     return (
-        <ul className='block_list'>
-            {list}
-        </ul>
+        <>
+            <div className={isLoading ? 'loading' : ''}>
+                {isLoading ? <Loading /> : <></>}
+            </div>
+            <ul className='block_list' >
+                {list}
+            </ul>
+        </>
     );
 }
 
 function List({user}: {user: User;}) {
     return (
-        <li key={user.name}>{/* IDをキーにすべき */}
+        <li key={user.name}>{/* TODO: ユニークなIDをキーにすべき */}
             <p className='name'>{user.name} ({user.kana})</p>
             <p>{user.birthday}　{user.sex}</p>
             <p>〒{user.postalCode} {user.address}</p>

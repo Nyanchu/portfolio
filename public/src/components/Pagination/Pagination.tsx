@@ -6,7 +6,7 @@ export const Pagination = (
     let list = [];
     for (let i = 1; i <= pageCount; i++) {
         list.push(
-            <li>
+            <li key={i}>
                 <Link to={path + "/" + i}
                     onClick={() => onChange(i)}
                     className={page === i ? "selected" : ""}

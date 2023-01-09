@@ -1,5 +1,5 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import './App.scss';
+import './assets/css/Common.scss';
 import {Header} from './components/Header';
 import {Works} from './components/Pages/Works';
 import {Skill} from './components/Pages/Skill';

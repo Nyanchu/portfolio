@@ -24,6 +24,11 @@ type Users = {
   address: string;
 };
 
+// sleep テスト用
+function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 app.get("/users", async (req, res) => {
   const limit = Number(req.query.limit) || 50;
   const offset = Number(req.query.offset) || 0;
@@ -32,6 +37,8 @@ app.get("/users", async (req, res) => {
   const count = await collection.count().get();
   const result = await collection.limit(limit).offset(offset).get();
   const users = result.docs.map((d) => d.data() as Users);
+  // sleep(テスト用)
+  await sleep(1000);
   res.json({
     limit: limit,
     offset: offset,
