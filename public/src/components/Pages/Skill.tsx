@@ -62,7 +62,7 @@ export const Skill = () => {
         <div className='main'>
             <p className='description'>
                 このページはただ単にスキルをアピールするためのサンプルページです。<br />
-                React で Firebase Functions の API を叩き、Firestore からデータを取得してレンダリングしています。
+                React で Firebase Functions の API を叩き、Firestore からダミーデータを取得してレンダリングしています。
             </p>
             <Pagination path="/skill" pageCount={pageCount} page={page} onChange={handleChange} />
             <BlockList users={users} isLoading={isLoading} />
