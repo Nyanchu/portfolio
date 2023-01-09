@@ -4,7 +4,35 @@
 
 https://portfolio-8cf27.web.app/
 
+### ディレクトリ構成
+
+以下のようになっています
+
+* **functions**: Firebase Functions
+* **public**: Firebase Hosting
+* **tools**: 便利ツール
+
+### 技術
+
+**フロントエンド**
+
+* WEBサーバ: Firebase Hosting
+* 使用言語: React(TypeScript) + HTML + SCSS
+* デザイン: レスポンシブ対応。ブートストラップなどは使わずにイチから作っています。
+
+**REST API**
+
+* APIサーバ: Firebase Function
+* 使用言語: Node.js(TypeScript)
+
+**その他**
+
+* DBサーバ: Firestore(NoSQL)
+* CI/CD: Github Actions でマージをフックに自動デプロイ
+
 # Usage
+
+以下は開発者(自分)向けです。
 
 ### デプロイ
 
